@@ -56,12 +56,12 @@ Graph::Graph(GameManager* game, int size)
 
 void Graph::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	// Draw the nodes
-	for (auto& node : mNodes)
-		node.draw(target, states);
-
 	// Draw the edges
 	target.draw(mEdges);
+	
+    // Draw the nodes
+	for (auto& node : mNodes)
+		node.draw(target, states);
 }
 
 void Graph::registerDistance(int id1, int id2, int distance)

@@ -90,10 +90,10 @@ void IntroState::draw()
 
 	if (isGraphVisible)
 	{
+		window.draw(mLines);
 		window.draw(mAlly);
 		window.draw(mEnemy);
 		window.draw(mUnknown);
-		window.draw(mLines);
 	}
 
 	if (isAPVisible)
