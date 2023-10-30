@@ -1,4 +1,8 @@
 #include "graph.hpp"
+
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
+
 #include "game_manager.hpp"
 #include "utils.hpp"
 
@@ -61,7 +65,9 @@ void Graph::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	
     // Draw the nodes
 	for (auto& node : mNodes)
+  {
 		node.draw(target, states);
+  }
 }
 
 void Graph::registerDistance(int id1, int id2, int distance)
@@ -75,7 +81,9 @@ std::vector<int> Graph::getNeighbours(int id) const
 {
 	std::vector<int> neighbours;
 	for (auto& list : mAdj[id])
+  {
 		neighbours.push_back(list.first);
+  }
 
 	return neighbours;
 }

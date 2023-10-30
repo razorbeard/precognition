@@ -4,7 +4,12 @@
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
+
+namespace sf
+{
+  class RenderTarget;
+  class RenderStates;
+}
 
 class Node : public sf::Transformable, public sf::Drawable
 {
@@ -24,7 +29,7 @@ public:
 	int getID() const;
 
 private:
-	static int idGenerator;
+	static int sIdGenerator;
 	sf::CircleShape mShape;
 
 	int mID;

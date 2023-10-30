@@ -1,4 +1,5 @@
 #include "menu_state.hpp"
+
 #include "intro_state.hpp"
 #include "game_manager.hpp"
 #include "utils.hpp"
@@ -55,14 +56,22 @@ void MenuState::update(sf::Time dt)
 	sf::Vector2f mousePosition = sf::Vector2f(sf::Mouse::getPosition(mGame->mWindow));
 
 	if (mStart.getGlobalBounds().contains(mousePosition))
+  {
 		mStart.setFillColor(sf::Color::Blue);
+  }
 	else
+  {
 		mStart.setFillColor(sf::Color::White);
+  }
 
 	if (mQuit.getGlobalBounds().contains(mousePosition))
-		mQuit.setFillColor(sf::Color::Blue);
-	else
+  {
+    mQuit.setFillColor(sf::Color::Blue);
+  }
+  else
+  {
 		mQuit.setFillColor(sf::Color::White);
+  }
 }
 
 void MenuState::draw()

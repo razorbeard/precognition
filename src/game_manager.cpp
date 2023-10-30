@@ -1,10 +1,11 @@
 #include "game_manager.hpp"
+
 #include "menu_state.hpp"
 
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Cursor.hpp>
 
-const sf::Time GameManager::TimePerFrame = sf::seconds(1.0f / 60.0f);
+const sf::Time GameManager::sTimePerFrame = sf::seconds(1.0f / 60.0f);
 
 GameManager::GameManager()
 	: mWindow({ 1024, 768 }, "Precognition", sf::Style::Close)
@@ -25,16 +26,20 @@ void GameManager::run()
 		sf::Time dt = clock.restart();
 		timeSinceLastUpdate += dt;
 
-		while (timeSinceLastUpdate > TimePerFrame)
+		while (timeSinceLastUpdate > sTimePerFrame)
 		{
-			timeSinceLastUpdate -= TimePerFrame;
+			timeSinceLastUpdate -= sTimePerFrame;
 
 			processInput();
 
 			if (!mStack.empty())
-				mStack.top()->update(TimePerFrame);
-			else
+      {
+        mStack.top()->update(sTimePerFrame);
+      }
+      else
+      {
 				mWindow.close();
+      }
 		}
 
 		render();
@@ -47,10 +52,14 @@ void GameManager::processInput()
 	while (mWindow.pollEvent(event))
 	{
 		if (!mStack.empty())
+    {
 			mStack.top()->handleEvent(event);
+    }
 
 		if (event.type == sf::Event::Closed)
+    {
 			mWindow.close();
+    }
 	}
 }
 
@@ -59,7 +68,9 @@ void GameManager::render()
 	mWindow.clear();
 
 	if (!mStack.empty())
+  {
 		mStack.top()->draw();
+  }
 
 	mWindow.setView(mWindow.getDefaultView());
 

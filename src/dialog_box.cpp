@@ -1,4 +1,5 @@
 #include "dialog_box.hpp"
+
 #include "game_manager.hpp"
 #include "utils.hpp"
 
@@ -38,14 +39,18 @@ void DialogBox::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	target.draw(mDialog, states);
 
 	if (mShowArrow)
+  {
 		target.draw(mArrow, states);
+  }
 }
 
 bool DialogBox::hasFinishedAllLines()
 {
 	// In addition of the size check, we confirm that the line has been totally displayed
 	if ((mCurrentLine == mMessage.lines.size() - 1) && hasFinishedCurrentLine())
-		return true;
+	{
+    return true;
+  }
 
 	return false;
 }
@@ -53,7 +58,9 @@ bool DialogBox::hasFinishedAllLines()
 bool DialogBox::hasFinishedCurrentLine()
 {
 	if (mDialog.getString() == mMessage.lines[mCurrentLine])
-		return true;
+	{
+    return true;
+  }
 
 	return false;
 }
@@ -64,9 +71,13 @@ void DialogBox::update(sf::Time dt)
 	static sf::Clock timer;
 
 	if (hasFinishedCurrentLine() && mMessage.isSkippable)
-		mShowArrow = true;
-	else
+  {
+    mShowArrow = true;
+  }
+  else
+  {
 		mShowArrow = false;
+  }
 
 	// Give an "up-down" effect to the arrow
 	mArrow.move(0.0f, 0.5f * std::sin(10.0f * mElapsedTime.asSeconds()));

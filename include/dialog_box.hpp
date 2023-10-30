@@ -9,7 +9,6 @@
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
-#include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 
 class GameManager;

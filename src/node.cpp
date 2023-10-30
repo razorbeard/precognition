@@ -1,12 +1,13 @@
 #include "node.hpp"
+
+#include <SFML/Graphics/RenderTarget.hpp>
+
 #include "utils.hpp"
 
-#include <SFML/Graphics/RectangleShape.hpp>
-
-int Node::idGenerator = 0;
+int Node::sIdGenerator = 0;
 
 Node::Node()
-	: mID(idGenerator++)
+	: mID(sIdGenerator++)
 	, mType(Type::Unknown)
 	, mFactoryLevel(0)
 	, mDefenseLevel(0)
@@ -26,12 +27,21 @@ void Node::draw(sf::RenderTarget& target, sf::RenderStates states) const
 void Node::setType(Node::Type type)
 {
 	mType = type;
-	if (mType == Node::Type::Ally)
+
+  switch (mType)
+  {
+  case (Node::Type::Ally):
 		mShape.setFillColor(sf::Color::Green);
-	else if (mType == Node::Type::Enemy)
+    break;
+  case (Node::Type::Enemy):
 		mShape.setFillColor(sf::Color::Red);
-	else if (mType == Node::Type::Unknown)
+    break;
+  case (Node::Type::Unknown):
 		mShape.setFillColor(sf::Color::White);
+    break;
+  default:  
+    break;
+  }
 }
 
 int Node::getID() const

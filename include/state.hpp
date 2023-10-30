@@ -1,9 +1,11 @@
 #ifndef STATE_HPP
 #define STATE_HPP
 
-#include <SFML/Window/Event.hpp>
-
-class GameManager;
+namespace sf
+{
+  class Time;
+  class Event;
+}
 
 class State
 {

@@ -29,7 +29,7 @@ private:
 	void render();
 
 private:
-	static const sf::Time TimePerFrame;
+	static const sf::Time sTimePerFrame;
 
 	std::stack<std::unique_ptr<State>> mStack;
 };

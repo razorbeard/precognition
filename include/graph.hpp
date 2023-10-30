@@ -10,6 +10,14 @@
 #include <utility>
 #include <vector>
 
+namespace sf
+{
+  class RenderTarget;
+  class RenderStates;
+  class Event;
+  class Time;
+}
+
 class GameManager;
 
 class Graph : public sf::Transformable, public sf::Drawable

@@ -4,8 +4,12 @@
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Window/Event.hpp>
+
+namespace sf
+{
+  class Event;
+  class Time;
+}
 
 class GameManager;
 
@@ -22,8 +26,8 @@ private:
 	GameManager* mGame;
 
 	sf::CircleShape mCircle;
-	bool isVisible;
-	bool isSelected;
+	bool mIsVisible;
+	bool mIsSelected;
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "intro_state.hpp"
+
 #include "game_state.hpp"
 #include "game_manager.hpp"
 #include "data.hpp"
@@ -72,10 +73,14 @@ void IntroState::update(sf::Time dt)
 	if (mDialogStatus == Intro::ID::Captain)
 	{
 		if (mDialogBox.getCurrentLine() == 6)
-			isGraphVisible = true;
+    {
+      isGraphVisible = true;
+    }
 
 		if (mDialogBox.getCurrentLine() == 8)
-			isAPVisible = true;
+    {
+      isAPVisible = true;
+    }
 	}
 
 	mDialogBox.update(dt);
