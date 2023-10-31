@@ -1,5 +1,7 @@
 # Precognition
 
+![Screenshot](resources/textures/screenshot.png)
+
 Precognition is a game submitted for the OLC CoderJam 2021, developed in C++ with the SFML library.
 Unfortunately, I haven't much time to go to the whole hog (less than 2 days instead of 9), so the game 
 is unfinished. So what you can see here is more of a game concept.
